@@ -1,0 +1,40 @@
+{
+  "name": "quickshare",
+  "version": "1.0.0",
+  "description": "QuickShare - Beginner-friendly instant file sharing web app",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "dev:next": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "dev:backend": "cd backend && npm run dev",
+    "start:backend": "cd backend && npm start",
+    "dev:frontend": "cd frontend && npm run dev",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install"
+  },
+  "keywords": [
+    "quickshare",
+    "file-sharing",
+    "react",
+    "express",
+    "nextjs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^15.0.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "fflate": "^0.8.2",
+    "lucide-react": "^1.48.0",
+    "qrcode.react": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "typescript": "^5.0.0"
+  }
+}
