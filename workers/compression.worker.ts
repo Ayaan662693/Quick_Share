@@ -10,6 +10,10 @@ import {
   CompressionLevel,
 } from '../types/compression';
 
+const workerMessageTarget = self as unknown as {
+  postMessage(message: WorkerOutgoingMessage, transfer: Transferable[]): void;
+};
+
 // Track current active job ID for cancellation support
 let currentActiveJobId: string | null = null;
 let isCancelled = false;
@@ -130,7 +134,7 @@ self.onmessage = async (event: MessageEvent<WorkerIncomingMessage>) => {
         };
 
         // Transfer resultBuffer with zero-copy efficiency
-        self.postMessage(completedMessage, [resultBuffer]);
+        workerMessageTarget.postMessage(completedMessage, [resultBuffer]);
         currentActiveJobId = null;
         return;
       }
@@ -238,7 +242,7 @@ self.onmessage = async (event: MessageEvent<WorkerIncomingMessage>) => {
       };
 
       // Transfer buffer for zero-copy high performance
-      self.postMessage(completedMessage, [resultBuffer]);
+      workerMessageTarget.postMessage(completedMessage, [resultBuffer]);
       currentActiveJobId = null;
     } catch (err: unknown) {
       const errorMsg =

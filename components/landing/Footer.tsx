@@ -1,7 +1,13 @@
 'use client';
 
 import React from 'react';
-import { Zap, Github, Twitter, Disc as Discord, Linkedin } from 'lucide-react';
+import {
+  Zap,
+  GitFork as Github,
+  MessageCircle as Twitter,
+  Disc as Discord,
+  BriefcaseBusiness as Linkedin,
+} from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
